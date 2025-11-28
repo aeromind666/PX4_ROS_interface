@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<launch>
+
+    <node pkg="game_combat" type="center_node" name="center_node" output="screen">
+        <rosparam file="$(find game_combat)/parameters/exp_formation.yaml" />
+    </node>
+
+    <node pkg="rosbag" type="record"  name="record" args="
+        /uav1/mavros/setpoint_position/local
+        /uav2/mavros/setpoint_position/local
+        /uav3/mavros/setpoint_position/local
+        
+        /uav1/mavros/setpoint_velocity/cmd_vel
+        /uav2/mavros/setpoint_velocity/cmd_vel
+        /uav3/mavros/setpoint_velocity/cmd_vel
+    
+        /uav1/mavros/local_position/pose
+        /uav2/mavros/local_position/pose
+        /uav3/mavros/local_position/pose
+
+        /uav1/mavros/local_position/velocity_local
+        /uav2/mavros/local_position/velocity_local
+        /uav3/mavros/local_position/velocity_local
+
+        /uav1/mavros/global_position/global
+        /uav2/mavros/global_position/global
+        /uav3/mavros/global_position/global
+
+        /uav1/self/cartesian_position_yaw
+        /uav2/self/cartesian_position_yaw
+        /uav3/self/cartesian_position_yaw
+
+        /uav1/mavros/imu/data
+        /uav2/mavros/imu/data
+        /uav3/mavros/imu/data
+
+        -o $(env HOME)/data/tmp/rosbag_for_game_combat/exp_formation"/> 
+
+</launch>

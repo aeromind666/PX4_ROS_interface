@@ -1,0 +1,23 @@
+######
+
+#The center of coordinate is uav1 
+uav1_init_pos: [0.0, 0.0, 9.0]
+uav2_init_pos: [2.0, 14.0, 6.0]
+uav3_init_pos: [-14.0, 8.0, 12.0]
+
+#geofence thresold
+# east
+param_boundary_x: 35.0
+# north
+param_boundary_y: 30.0
+# sky
+param_boundary_z: 20.0
+
+# velocity command thresold need to act
+min_algorithm_command_thresold: 0.1
+
+# minimal safety distance between uav
+min_safe_diatance_between_uav: 1.0
+
+# choose yaw control mode, 1: yaw angle control, 0: yaw rate control
+vel_yaw_control_mode: 0.0 
